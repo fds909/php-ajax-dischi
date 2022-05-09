@@ -55,30 +55,40 @@
   <title>Dischi</title>
 </head>
 <body>
-  <header>
-    <img class="logo" src="img/spotify-logo.webp" alt="Spotify Logo">
-  </header>
+  <div id="app">
+    <header>
+      <img class="logo" src="img/spotify-logo.webp" alt="Spotify Logo">
+    </header>
 
-  <main>
-    <div class="container">
-      <div class="albums">
-        <?php
-          foreach ($database as $album) {
-            echo "<div class='album-container'>";
-            echo "<img src=" . $album['poster'] . " alt='Album Cover' >";
-            echo "<h3 class='title'>". $album['title'] . "</h3>";
-            echo "<div class='author'>" . $album['author'] . "</div>";
-            echo "<div class='year'>" . $album['year'] . "</div>";
-            echo "</div>";
-          }
-        ?>
+    <main>
+      <div class="container">
+        <div class="albums">
+          <?php
+            // foreach ($database as $album) {
+            //   echo "<div class='album-container'>";
+            //   echo "<img src=" . $album['poster'] . " alt='Album Cover' >";
+            //   echo "<h3 class='title'>". $album['title'] . "</h3>";
+            //   echo "<div class='author'>" . $album['author'] . "</div>";
+            //   echo "<div class='year'>" . $album['year'] . "</div>";
+            //   echo "</div>";
+            // }
+          ?>
+          <div class="album-container" v-for="album in albums">
+            <img :src="album.poster" alt="Album Cover">
+            <h3 class="title">{{ album.title }}</h3>
+            <div class="author">{{ album.author }}</div>
+            <div class="year">{{ album.year }}</div>
+          </div>   
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!-- Vue 2 cdn -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <!-- Axios cdn -->
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Vue 2 cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Main js -->
+    <script type="text/javascript" src="js/main.js"></script>
+  </div>
 </body>
 </html>
