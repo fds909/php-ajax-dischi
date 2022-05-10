@@ -4,10 +4,10 @@ var app = new Vue ({
     albums: []
   },
   created() {
-    axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+    axios.get('http://localhost/php-ajax-dischi/api/dischi.php')
         .then((res) => {
-          console.log(res.data.response);
-          this.albums = res.data.response;
+          console.log(res.data);
+          this.albums = res.data;
         })
   }
 })
